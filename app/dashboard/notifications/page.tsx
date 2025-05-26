@@ -224,8 +224,8 @@ export default function NotificationsPage() {
                         </h3>
                         <div className="flex items-center space-x-2">
                           <Badge className={getPriorityColor(notification.priority)}>
-                              {notification.priority}
-                              </Badge>
+                            {notification.priority}
+                          </Badge>
                           <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                         </div>
                       </div>
@@ -358,4 +358,35 @@ export default function NotificationsPage() {
                         </h3>
                         <div className="flex items-center space-x-2">
                           <Badge className={getPriorityColor(notification.priority)}>
-                            {
+                            {notification.priority}
+                          </Badge>
+                          {!notification.read && (
+                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                          )}
+                        </div>
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-300">{notification.message}</p>
+                      <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                        <span>From: {notification.from}</span>
+                        <span>{formatDistanceToNow(notification.timestamp, { addSuffix: true })}</span>
+                      </div>
+                      {!notification.read && (
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          onClick={() => markAsRead(notification.id)}
+                        >
+                          Mark as read
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )
+          })}
+        </TabsContent>
+      </Tabs>
+    </div>
+  )
+}
