@@ -224,8 +224,8 @@ export default function NotificationsPage() {
                         </h3>
                         <div className="flex items-center space-x-2">
                           <Badge className={getPriorityColor(notification.priority)}>
-                            {notification.priority}
-                          </Badge>
+                              {notification.priority}
+                              </Badge>
                           <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                         </div>
                       </div>
